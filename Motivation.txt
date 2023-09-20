@@ -1,0 +1,168 @@
+from tkinter import *
+from tkinter import ttk
+import tkinter as tk
+from tkinter.messagebox import showinfo
+import fileinput
+from tkinter.filedialog import *
+import tkinter.messagebox
+from threading import Thread
+import keyboard
+
+root = Tk()
+root.title("Motivation")
+root.geometry("350x250")
+root.resizable(False, False)
+
+def btn_click():
+    info_str = 'ЕГЭ больше не будет. Так сказал Fenix!'
+    tkinter.messagebox.showinfo(title='ЕГЭ', message=info_str)
+
+def creator_click():
+    info = 'Эту программу создал Fenix'
+    tkinter.messagebox.showinfo(title='Creator', message=info)
+
+def login_btn():
+    login1 = login.get()
+    password1 = password.get()
+
+    info_str = f'Привет, {str(login1)}! Запомните Ваш пароль: "{str(password1)}"'
+    tkinter.messagebox.showinfo(title='Login', message=info_str)
+
+def btn_about():
+    login2 = login.get()
+    password2 = password.get()
+
+    info_str = f'Name: {str(login2)}\nPassword: {str(password2)}'
+    tkinter.messagebox.showinfo(title='About', message=info_str)
+
+def tele():
+    info_tele = 'https://t.me/@Matter_Team  |  Если не находит в инретнете, то наберите в Telegram поиске: @Matter_Team'
+    tkinter.messagebox.showinfo(title='Telegram', message=info_tele)
+
+def you():
+    info_you = 'https://youtube.com/@0fenix'
+    tkinter.messagebox.showinfo(title='YouTube', message=info_you)
+
+
+def exit_check():
+    while True:
+         if keyboard.is_pressed("p"):
+              quit()
+
+thread1 = Thread(target=exit_check)
+thread1.start()
+
+frame = ttk.Frame(borderwidth=1, relief=SOLID, padding=[8, 10])
+frame.pack()
+
+text = Label(frame, text="Complete the registration", font=50)
+text.pack()
+
+logib = Button(frame, text="login", bg="lime", command=login_btn)
+logib.pack()
+
+login = Entry(frame, bg="cyan")
+login.pack()
+
+password = Entry(frame, bg='cyan', show='*')
+password.pack()
+
+root.option_add("*tearOff", FALSE)
+
+main_menu = Menu()
+
+file1_menu = Menu()
+file1_menu.add_command(label="About", command=btn_about)
+file1_menu.add_command(label="Creator", command=creator_click)
+file1_menu.add_separator()
+file1_menu.add_command(label="Exit", command=exit_check)
+
+file2_menu = Menu()
+file2_menu.add_command(label="Telegram", command=tele)
+file2_menu.add_command(label="YouTube", command=you)
+
+main_menu.add_cascade(label="Main", menu=file1_menu)
+main_menu.add_cascade(label="Support", menu=file2_menu)
+main_menu.add_cascade(label="Motivation")
+
+root.config(menu=main_menu)
+
+
+
+class NewWindow(Toplevel):
+
+    def __init__(self, master=None):
+        super().__init__(master=master)
+        self.title("Motivation")
+        self.geometry("250x200")
+
+        def bt11():
+            info_bt1 = ('Сфокусируйтесь на своем сердце: Оценивайте\n'
+                        'людей по размеру их сердца, а не по их статусу.')
+            tkinter.messagebox.showinfo(title='Motivation #1', message=info_bt1)
+
+        def bt12():
+            info_bt1 = ('Помните, почему вы начали: Вспомните, что вас\n'
+                        'вдохновило начать свой путь, и используйте это,\n'
+                        'чтобы возобновить свою мотивацию.')
+            tkinter.messagebox.showinfo(title='Motivation #2', message=info_bt1)
+
+        def bt13():
+            info_bt1 = ('Отмечайте свои достижения: Уделите время,\n'
+                        'чтобы признать и оценить прогресс, который вы сделали.')
+            tkinter.messagebox.showinfo(title='Motivation #3', message=info_bt1)
+
+        def bt14():
+            info_bt1 = ('Оставайтесь вовлеченными: Участвуйте в процессе\n'
+                        'обучения и найдите способы сделать его интересным.')
+            tkinter.messagebox.showinfo(title='Motivation #4', message=info_bt1)
+
+        def bt15():
+            info_bt1 = ('Ставьте достижимые цели: Разбейте свои\n'
+                        'большие цели на более маленькие, более управляемые.')
+            tkinter.messagebox.showinfo(title='Motivation #5', message=info_bt1)
+
+        def bt16():
+            info_bt1 = ('Преодолевайте препятствия: Используйте вызовы\n'
+                        'как возможности для обучения и роста.')
+            tkinter.messagebox.showinfo(title='Motivation #6', message=info_bt1)
+
+        def bt17():
+            info_bt1 = ('Ставьте новые цели: Непрерывно ставьте\n'
+                        'перед собой новые цели, чтобы поддерживать\n'
+                        'мотивацию и двигаться вперед.')
+            tkinter.messagebox.showinfo(title='Motivation #7', message=info_bt1)
+
+        label = Label(self, text="Motivation", font=10)
+        label.pack()
+
+        bt1 = Button(self, text="Motivation #1", bg="red", command=bt11)
+        bt1.pack()
+        bt2 = Button(self, text="Motivation #2", bg="orange", command=bt12)
+        bt2.pack()
+        bt3 = Button(self, text="Motivation #3", bg="yellow", command=bt13)
+        bt3.pack()
+        bt4 = Button(self, text="Motivation #4", bg="green", command=bt14)
+        bt4.pack()
+        bt5 = Button(self, text="Motivation #5", bg="cyan", command=bt15)
+        bt5.pack()
+        bt6 = Button(self, text="Motivation #6", bg="blue", command=bt16)
+        bt6.pack()
+        bt7 = Button(self, text="Motivation #7", bg="purple", command=bt17)
+        bt7.pack()
+
+        label1 = Label(self, text="Это приложение, как вы поняли, создана для мотивации.\n"
+                                  "Чтобы вы наконец встали с дивана и перестали смотреть свой tik tok.\n"
+                                  "Чтобы вы наконец занялись своим любимым делом и осуществили свою мечту!")
+        label1.pack()
+
+btn2 = Button(
+             text="Motivate yourself", bg="pink")
+
+btn2.bind("<Button>",
+         lambda e: NewWindow())
+
+btn2.pack(pady=10)
+
+
+root.mainloop()
